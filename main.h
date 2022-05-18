@@ -83,5 +83,9 @@ void exitHandler(char **argv, char **cmds, int *last_return);
 void envHandler(char **argv, char **cmds, int *last_return);
 void setenvHandler(char **argv, char **cmds, int *last_return);
 void unsetenvHandler(char **argv, char **cmds, int *last_return);
+void cdHandler(char **av, char **cmds, int *lst_ret);
+
+void updateEnv(char *key, char __attribute__((unused))**cmds, int *lst_ret);
+
 
 #endif /* MAIN_H */

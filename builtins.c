@@ -13,6 +13,7 @@ void (*get_builtin(char *s))(char **argv, char **cmds, int *last_return)
 		{"env", envHandler},
 		{"setenv", setenvHandler},
 		{"unsetenv", unsetenvHandler},
+		{"cd", cdHandler},
 		{NULL, NULL}
 	};
 	int i = 0;
