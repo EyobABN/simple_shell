@@ -77,7 +77,7 @@ void exec_file(int ac, char **av)
 			perror("Error: failed to create commmands");
 			continue;
 		}
-		exec_cmds(cmds);
+		exec_cmds(av, cmds);
 		free_entire_arr(cmds);
 		for (i = 0; i < BUFSZ; i++)
 			line[i] = '\0';

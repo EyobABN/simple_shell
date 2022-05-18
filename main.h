@@ -13,7 +13,7 @@
 
 extern char **environ;
 
-#define BUFSZ 1024
+#define BUFSZ 4096
 
 /**
  * struct path_s - a struct of a directory in path
@@ -74,7 +74,7 @@ void exec_file(int ac, char **av);
 void print_prompt(void);
 char **get_input(void);
 ssize_t _getline(char *buf, size_t sz);
-void exec_cmds(char **cmds);
+void exec_cmds(char **av, char **cmds);
 void exec(char **argv, int *last_return);
 void parent(int *status, char **argv, int *last_return);
 int print_error(void);
