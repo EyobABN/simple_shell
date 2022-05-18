@@ -1,7 +1,5 @@
 #include "main.h"
 
-#define BUFSZ 1024
-
 /**
  * _getline - reads one line from stdin
  * @buf: the buffer for storing the line

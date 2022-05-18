@@ -2,11 +2,12 @@
 
 /**
  * exec_cmds - executes commands from the same line
+ * @av: the av of the main function
  * @cmds: the commands
  *
  * Return: void
  */
-void exec_cmds(char **cmds)
+void exec_cmds(char **av, char **cmds)
 {
 	char **argv;
 	int status, i, last_return = 0;
@@ -21,7 +22,7 @@ void exec_cmds(char **cmds)
 			continue;
 		if (isOpr(argv[0]) != 1 && cmd_exists(argv[0]) != 1)
 		{
-			perror("Error: not found");
+			perror(av[0]);
 			continue;
 		}
 		if (get_builtin(argv[0]) && last_return == 0)

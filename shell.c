@@ -16,7 +16,7 @@ int main(int ac, char **av)
 	while (1)
 	{
 		cmds = get_input();
-		exec_cmds(cmds);
+		exec_cmds(av, cmds);
 		free_entire_arr(cmds);
 	}
 	return (0);
