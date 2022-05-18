@@ -10,7 +10,7 @@ char **get_input(void)
 	char **cmds, line[BUFSZ] = {0};
 	ssize_t nread = 0;
 
-	_puts("# ");
+	print_prompt();
 	nread = _getline(line, BUFSZ);
 	if (nread == -1)
 		exit(0);	/* EOF (Ctrl+D) captured */
