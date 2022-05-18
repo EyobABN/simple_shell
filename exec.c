@@ -33,11 +33,10 @@ void exec(char **argv, int *last_return)
 		free_entire_arr(argv);
 		exit(*last_return);
 	}
-	temp = argv[0];	/* switch argv[0] */
-	argv[0] = fetch_cmd(argv[0]);
-	if (argv[0] != temp)
-		free(temp);
-	if (execve(argv[0], argv, NULL) == -1)
+	temp = fetch_cmd(argv[0]);
+	if (execve(temp, argv, NULL) == -1)
 		perror("Execve Error:");
+	if (temp != argv[0])
+		free(temp);
 	free_entire_arr(argv);
 }
