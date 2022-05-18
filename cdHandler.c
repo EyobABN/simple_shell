@@ -37,19 +37,21 @@ void updateEnv(char *key, char __attribute__((unused))**cmds, int *lst_ret)
  */
 void cdHandler(char **av, char __attribute__((unused))**cmds, int *lst_ret)
 {
+	int status;
+
 	if (*lst_ret != 0)
 	{
 		return;
 	}
-/*
-* updateEnv("OLDPWD", cmds, lst_ret);
-*/
+	updateEnv("OLDPWD", cmds, lst_ret);
 	if ((_strcmp(av[0], "cd") == 0) && av[1] == NULL)
 	{
 		if (chdir("/") == 0)
 		{
 			updateEnv("PWD", cmds, lst_ret);
 			free_entire_arr(av);
+			status = 0;
+			*lst_ret = status;
 			return;
 		}
 	}
@@ -57,6 +59,8 @@ void cdHandler(char **av, char __attribute__((unused))**cmds, int *lst_ret)
 	{
 		updateEnv("PWD", cmds, lst_ret);
 		free_entire_arr(av);
+		status = 0;
+		*lst_ret = status;
 		return;
 	}
 	else
