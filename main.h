@@ -71,6 +71,7 @@ char **mkOprargv(char *str);
 char **makeCmds(char *str);
 
 void exec_file(int ac, char **av);
+void print_prompt(void);
 char **get_input(void);
 ssize_t _getline(char *buf, size_t sz);
 void exec_cmds(char **cmds);
