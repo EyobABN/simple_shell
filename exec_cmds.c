@@ -23,6 +23,7 @@ void exec_cmds(char **av, char **cmds)
 		if (isOpr(argv[0]) != 1 && cmd_exists(argv[0]) != 1)
 		{
 			perror(av[0]);
+			free_entire_arr(argv);
 			continue;
 		}
 		if (get_builtin(argv[0]) && last_return == 0)
@@ -34,7 +35,8 @@ void exec_cmds(char **av, char **cmds)
 		if (child_pid == -1)
 		{
 			perror("Error: unable to fork");
-			return;
+			free_entire_arr(argv);
+			continue;
 		}
 		if (child_pid == 0)
 			exec(argv, &last_return);
