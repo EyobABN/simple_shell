@@ -12,13 +12,13 @@ int count_words(char *str)
 
 	while (str[i])
 	{
-		if (str[i] == ' ')
+		if (str[i] == ' ' || str[i] == '\t')
 		{
-			while (str[i] == ' ')
+			while (str[i] == ' ' || str[i] == '\t')
 				i++;
 			continue;
 		}
-		while (str[i] != ' ' && str[i])
+		while (str[i] != ' ' && str[i] != '\t' && str[i])
 			i++;
 		word_count++;
 	}
@@ -48,15 +48,15 @@ char **mkargv(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == ' ')
+		if (str[i] == ' ' || str[i] == '\t')
 		{
-			while (str[i] == ' ')
+			while (str[i] == ' ' || str[i] == '\t')
 				i++;
 			continue;
 		}
 		j = i;
 		letter_count = 0;
-		while (str[i] != ' ' && str[i])
+		while (str[i] != ' ' && str[i] != '\t' && str[i])
 		{
 			i++;
 			letter_count++;
