@@ -41,7 +41,9 @@ void cdHandler(char **av, char __attribute__((unused))**cmds, int *lst_ret)
 	{
 		return;
 	}
-	updateEnv("OLDPWD", cmds, lst_ret);
+/*
+* updateEnv("OLDPWD", cmds, lst_ret);
+*/
 	if ((_strcmp(av[0], "cd") == 0) && av[1] == NULL)
 	{
 		if (chdir("/") == 0)
