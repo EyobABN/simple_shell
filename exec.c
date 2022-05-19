@@ -20,8 +20,7 @@ void exec(char **argv, int *last_return)
 			else
 				*last_return = 1;
 		}
-		if (_strcmp(argv[0], ";") == 0 ||
-				_strcmp(argv[0], "\n") == 0)
+		if (_strcmp(argv[0], ";") == 0)
 			*last_return = 0;
 		if (_strcmp(argv[0], " #") == 0)
 			*last_return = 99;

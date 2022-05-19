@@ -12,7 +12,6 @@ int isOpr(char *s)
 	if (!((*s == '&' && *(s + 1) == '&') ||
 		(*s == '|' && *(s + 1) == '|') ||
 		(*s == ';') ||
-		(*s == '\n') ||
 		(*s == ' ' && *(s + 1) == '#')))
 		return (0);
 	return (1);
@@ -32,7 +31,7 @@ int count_commands(char *str)
 		if (isOpr(&(str[i])))
 		{
 			command_count++;
-			if (str[i] != ';' || str[i] != '\n')
+			if (str[i] != ';')
 				i++;
 			i++;
 			continue;
@@ -58,7 +57,7 @@ char *makeOp(char *s)
 	int i, size;
 	char *op;
 
-	if (*s == ';' || *s == '\n')
+	if (*s == ';')
 		size = 1;
 	else
 		size = 2;
