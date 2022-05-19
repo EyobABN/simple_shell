@@ -10,15 +10,15 @@
  */
 void parent(int *status, char **argv, __attribute__((unused))int *last_return)
 {
-	int exit_status;
+/*	int exit_status;	*/
 
 	wait(status);
-
-	if (WIFEXITED(*status))
-	{
-		exit_status = WEXITSTATUS(*status);
-		*last_return = exit_status;
-	}
-
+/*
+*	if (WIFEXITED(*status))
+*	{
+*		exit_status = WEXITSTATUS(*status);
+*		*last_return = exit_status;
+*	}
+*/
 	free_entire_arr(argv);
 }
