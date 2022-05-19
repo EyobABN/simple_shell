@@ -18,8 +18,13 @@ void exec_cmds(char **av, char **cmds)
 		if (last_return == 99) /* " #" detected in previous cmd */
 			break;
 		argv = mkargv(cmds[i]);
-		if (argv == NULL || argv[0] == NULL)
+		if (argv == NULL)
 			continue;
+		if (argv[0] == NULL)
+		{
+			free_entire_arr(argv);
+			continue;
+		}
 		if (isOpr(argv[0]) != 1 && cmd_exists(argv[0]) != 1)
 		{
 			perror(av[0]);
