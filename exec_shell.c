@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * get_input - gets input and turns it into cmds
+ * exec_shell - gets input and turns it into cmds
  * @av: the argument vector of the main function
  *
  * Return: a char pointer of the commands
  */
-void get_input(char **av)
+void exec_shell(char **av)
 {
 	char **cmds, *cmd_line, line[BUFSZ] = {0};
 	ssize_t nread = 0;
@@ -22,7 +22,7 @@ void get_input(char **av)
 		if (cmds == NULL)
 		{
 			perror("Error: failed to create commands");
-			get_input(av);
+			exec_shell(av);
 		}
 		exec_cmds(av, cmds);
 		free_entire_arr(cmds);

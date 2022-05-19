@@ -12,7 +12,7 @@ int isOpr(char *s)
 	if (!((*s == '&' && *(s + 1) == '&') ||
 		(*s == '|' && *(s + 1) == '|') ||
 		(*s == ';') ||
-		(*s == ' ' && *(s + 1) == '#')))
+		((*s == ' ' || *s == '\t')  && *(s + 1) == '#')))
 		return (0);
 	return (1);
 }
@@ -57,7 +57,7 @@ char *makeOp(char *s)
 	int i, size;
 	char *op;
 
-	if (*s == ';')
+	if (*s == ';' || *s == '#')
 		size = 1;
 	else
 		size = 2;
@@ -108,6 +108,8 @@ char **makeCmds(char *str)
 
 	if (str == NULL)
 		return (NULL);
+	if (*str == '#')
+		return (mkOprargv(" #"));
 	cmd_count = count_commands(str);
 	cmd = malloc(sizeof(char *) * (cmd_count + 1));
 	if (cmd == NULL)

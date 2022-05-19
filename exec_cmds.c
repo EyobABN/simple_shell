@@ -20,6 +20,11 @@ void exec_cmds(char **av, char **cmds)
 		argv = mkargv(cmds[i]);
 		if (argv == NULL)
 			continue;
+		if (argv[0] == NULL)
+		{
+			free_entire_arr(argv);
+			continue;
+		}
 		if (isOpr(argv[0]) != 1 && cmd_exists(argv[0]) != 1)
 		{
 			perror(av[0]);
