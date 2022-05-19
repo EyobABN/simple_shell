@@ -45,7 +45,6 @@ void unsetenvHandler(char **av, char __attribute__((unused))**cmds, int *l_rt)
 		return;
 	if (av[1] == NULL)
 	{
-		perror("Error: unsetenv: invalid argument");
 		free_entire_arr(av);
 		return;
 	}

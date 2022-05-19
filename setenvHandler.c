@@ -69,7 +69,6 @@ void setenvHandler(char **av, char __attribute__((unused))**cmds, int *lst_ret)
 		return;
 	if (av[1] == NULL || av[2] == NULL)
 	{
-		perror("Errpr: setenv: Invalid arguments");
 		free_entire_arr(av);
 		return;
 	}
