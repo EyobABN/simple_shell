@@ -85,7 +85,8 @@ void setenvHandler(char **argv, char **cmds, int *last_return);
 void unsetenvHandler(char **argv, char **cmds, int *last_return);
 void cdHandler(char **av, char **cmds, int *lst_ret);
 
-void updateEnv(char *key, char __attribute__((unused))**cmds, int *lst_ret);
-
+void updateEnv(char *key, char *value, char **cmds, int *lst_ret);
+void nullAndHyphen(char **av, char *buf, size_t len, char **cmds, int *lst_ret);
+char *_getenv(const char *name);
 
 #endif /* MAIN_H */
