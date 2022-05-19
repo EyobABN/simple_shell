@@ -20,7 +20,7 @@ void updateEnv(char *key, char *value, char **cmds, int *lst_ret)
 	setenvHandler(setenv_args, cmds, lst_ret);
 }
 /**
- * nullAndHyphen - handles null and hyphen arguments
+ * null_Hyphen - handles null and hyphen arguments
  * @av: arguments
  * @buf: buffer for getcwd
  * @len: length for getcwd
@@ -28,7 +28,7 @@ void updateEnv(char *key, char *value, char **cmds, int *lst_ret)
  * @lst_ret: last return value
  * Return: void
  */
-void nullAndHyphen(char **av, char *buf, size_t len, char **cmds, int *lst_ret)
+void null_Hyphen(char **av, char *buf, size_t len, char **cmds, int *lst_ret)
 {
 	char *dir, *currentDir;
 	int status;
@@ -87,7 +87,7 @@ void cdHandler(char **av, char __attribute__((unused))**cmds, int *lst_ret)
 	buf = malloc(1000);
 	if (av[1] == NULL || _strcmp(av[1], "-") == 0)
 	{
-		nullAndHyphen(av, buf, len, cmds, lst_ret);
+		null_Hyphen(av, buf, len, cmds, lst_ret);
 		return;
 	}
 	currentDir = getcwd(buf, len);
