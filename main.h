@@ -72,7 +72,7 @@ char **makeCmds(char *str);
 
 void exec_file(int ac, char **av);
 void print_prompt(void);
-char **get_input(void);
+void get_input(char **av);
 ssize_t _getline(char *buf, size_t sz);
 void exec_cmds(char **av, char **cmds);
 void exec(char **argv, int *last_return);

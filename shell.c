@@ -9,15 +9,11 @@
  */
 int main(int ac, char **av)
 {
-	char **cmds;
-
 	if (av[1] != NULL)
 		exec_file(ac, av);
 	while (1)
 	{
-		cmds = get_input();
-		exec_cmds(av, cmds);
-		free_entire_arr(cmds);
+		get_input(av);
 	}
 	return (0);
 }
