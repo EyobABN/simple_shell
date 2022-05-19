@@ -26,7 +26,7 @@ ssize_t _getline(char *buf, size_t sz)
 	if (nchr == 0)
 		return (-1);
 	p = buf;    /* check each char */
-	while (idx < nchr && *p != '\n')
+	while (idx < nchr)
 	{
 		p++;
 		idx++;

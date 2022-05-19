@@ -18,7 +18,7 @@ void exec_cmds(char **av, char **cmds)
 		if (last_return == 99) /* " #" detected in previous cmd */
 			break;
 		argv = mkargv(cmds[i]);
-		if (argv == NULL)
+		if (argv == NULL || argv[0] == NULL)
 			continue;
 		if (isOpr(argv[0]) != 1 && cmd_exists(argv[0]) != 1)
 		{
