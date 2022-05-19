@@ -12,8 +12,6 @@ int main(int ac, char **av)
 	if (av[1] != NULL)
 		exec_file(ac, av);
 	while (1)
-	{
-		get_input(av);
-	}
+		exec_shell(av);
 	return (0);
 }
