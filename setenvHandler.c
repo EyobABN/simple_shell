@@ -88,7 +88,9 @@ void setenvHandler(char **av, char __attribute__((unused))**cmds, int *lst_ret)
 			environ[i] = new; /* needs to be free'd */
 			break;
 		}
+		free(token);
 	}
+	free(token);
 	if (found == 0)
 		create_var(av, new);
 	free_entire_arr(av);
