@@ -19,8 +19,10 @@ ssize_t readline(char *buf, size_t sz, char *fn, off_t *offset)
 	fd = open(fn, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error: Couldn't open file");
-		return (-1);
+		write(STDERR_FILENO, "./hsh: 0: Can't open ", 21);
+		write(STDERR_FILENO, fn, _strlen(fn));
+		write(STDERR_FILENO, "\n", 1);
+		exit(127);
 	}
 	/* position fd & read line */
 	temp = malloc(sizeof(char) * (*offset));
