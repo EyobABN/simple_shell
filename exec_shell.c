@@ -19,6 +19,8 @@ void exec_shell(char **av)
 	lst_ret = 0;
 	while ((cmd_line = _strtok(line, "\n", &currIndex)) != NULL)
 	{
+		if (_strcmp(cmd_line, "") == 0)
+			continue;
 		cmds = makeCmds(cmd_line);
 		free(cmd_line);
 		if (cmds == NULL)
