@@ -11,6 +11,7 @@
 void exitHandler(char **argv, char **cmds, int *last_return)
 {
 	int status;
+	char err[BUFSZ] = {0};
 
 	if (*last_return != 0)
 		return;
@@ -27,8 +28,9 @@ void exitHandler(char **argv, char **cmds, int *last_return)
 		free_entire_arr(cmds);
 		exit(status);
 	}
-	write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
-	write(STDERR_FILENO, argv[1], _strlen(argv[1]));
-	write(STDERR_FILENO, "\n", 1);
+	_strcat(err, "./hsh: 1: exit: Illegal number: ");
+	_strcat(err, argv[1]);
+	_strcat(err, "\n");
+	write(STDERR_FILENO, err, _strlen(err));
 	exit(2);
 }

@@ -51,6 +51,7 @@ void _puts(char *str);
 int _strlen(const char *s);
 char *_strtok(char *s, char *delm, int *currIndex);
 int _atoi(char *s);
+char *_strcat(char *dest, char *src);
 int is_number(char *s);
 
 path_t *add_node_end(path_t **head, char *str);
