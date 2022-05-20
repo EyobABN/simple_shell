@@ -18,7 +18,6 @@ void parent(int *status, char **argv, __attribute__((unused))int *last_return)
 	{
 		exit_status = WEXITSTATUS(*status);
 		*last_return = exit_status;
-		lst_ret = exit_status;
 	}
 
 	free_entire_arr(argv);

@@ -27,5 +27,8 @@ void exitHandler(char **argv, char **cmds, int *last_return)
 		free_entire_arr(cmds);
 		exit(status);
 	}
-	perror("exit: Illegal number");
+	write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
+	write(STDERR_FILENO, argv[1], _strlen(argv[1]));
+	write(STDERR_FILENO, "\n", 1);
+	exit(2);
 }

@@ -12,7 +12,6 @@
 #include <fcntl.h>
 
 extern char **environ;
-int lst_ret;
 
 #define BUFSZ 8192
 
