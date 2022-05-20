@@ -34,7 +34,7 @@ void exec(char **argv, int *last_return)
 		exit(*last_return);
 	}
 	temp = fetch_cmd(argv[0]);
-	if (execve(temp, argv, NULL) == -1)
+	if (execve(temp, argv, environ) == -1)
 		perror("Execve Error:");
 	if (temp != argv[0])
 		free(temp);
