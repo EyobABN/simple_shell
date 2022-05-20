@@ -60,8 +60,10 @@ void unsetenvHandler(char **av, char __attribute__((unused))**cmds, int *l_rt)
 		{
 			found = 1;
 			d_index = i;
+			free(token);
 			break;
 		}
+		free(token);
 	}
 	if (found == 1)
 		del_var(d_index);
